@@ -9,5 +9,8 @@ export const usuarioRepository = {
   },
   async findById(id) {
     return await prisma.usuario.findUnique({ where: { id } })
+  },
+  async update(id, data) {
+    return await prisma.usuario.update({ where: { id }, data })
   }
 }

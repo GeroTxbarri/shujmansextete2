@@ -2,15 +2,32 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Onboarding from './pages/Onboarding'
+import DashboardLayout from './layouts/DashboardLayout'
+import Dashboard from './pages/Dashboard'
+import Dieta from './pages/Dieta'
+import Entrenamientos from './pages/Entrenamientos'
+import Metricas from './pages/Metricas'
+import Perfil from './pages/Perfil'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/"         element={<Landing />} />
-        <Route path="/login"    element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*"         element={<Navigate to="/" replace />} />
+        <Route path="/"           element={<Landing />} />
+        <Route path="/login"      element={<Login />} />
+        <Route path="/register"   element={<Register />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index               element={<Dashboard />} />
+          <Route path="dieta"        element={<Dieta />} />
+          <Route path="entrenamientos" element={<Entrenamientos />} />
+          <Route path="metricas"     element={<Metricas />} />
+          <Route path="perfil"       element={<Perfil />} />
+        </Route>
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   )

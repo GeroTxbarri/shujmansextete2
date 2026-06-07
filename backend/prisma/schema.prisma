@@ -15,4 +15,13 @@ model Usuario {
   nombre    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Datos de onboarding
+  onboardingCompleto Boolean @default(false)
+  edad               Int?
+  peso               Float?
+  altura             Float?
+  sexo               String?
+  actividadFisica    Int?
+  objetivo           String?
 }

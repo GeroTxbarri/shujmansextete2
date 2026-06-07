@@ -37,7 +37,7 @@ export default function Register() {
       const data = await authApi.register(form.email, form.password, form.nombre)
       localStorage.setItem('token', data.token)
       localStorage.setItem('usuario', JSON.stringify(data.usuario))
-      navigate('/dashboard')
+      navigate('/onboarding')
     } catch (err) {
       setApiError(err.message)
     } finally {

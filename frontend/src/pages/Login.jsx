@@ -34,7 +34,7 @@ export default function Login() {
       const data = await authApi.login(form.email, form.password)
       localStorage.setItem('token', data.token)
       localStorage.setItem('usuario', JSON.stringify(data.usuario))
-      navigate('/dashboard')
+      navigate(data.usuario.onboardingCompleto ? '/dashboard' : '/onboarding')
     } catch (err) {
       setApiError(err.message)
     } finally {
